@@ -1,0 +1,34 @@
+$SIZE_MAP: (
+  heading1: 34px,
+  heading2: 22px,
+  heading3: 17px,
+  button1: 15px,
+  button2: 12px,
+  body1: 13px,
+  caption1: 11px,
+  small: 10px,
+);
+
+$WEIGHT_MAP: (
+  heading1: bold,
+  heading2: 700,
+  heading3: 500,
+  button1: 500,
+  button2: 300,
+  body1: 500,
+  caption1: 500,
+  small: 300,
+);
+
+@function _getFontSize($key) {
+  @return map-get($SIZE_MAP, $key);
+}
+
+@function _getFontWeigh($key) {
+  @return map-get($WEIGHT_MAP, $key);
+}
+
+@mixin fontSize($size: body1) {
+  font-size: _getFontSize($size);
+  font-weight: _getFontWeigh($size);
+}

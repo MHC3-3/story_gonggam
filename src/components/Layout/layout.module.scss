@@ -1,5 +1,8 @@
+@use 'src/styles/constants' as c;
+
 .main {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  @include c.fontSize(heading1);
 }
