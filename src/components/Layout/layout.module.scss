@@ -1,8 +1,17 @@
 @use 'src/styles/constants' as c;
 
 .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  overflow-x: hidden;
+  min-height: 100vh;
   overflow-y: auto;
-  @include c.fontSize(heading1);
+
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+  }
 }

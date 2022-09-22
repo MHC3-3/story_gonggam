@@ -1,0 +1,23 @@
+@use 'src/styles/constants' as c;
+
+.subTitle {
+  .floor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border-bottom: 1px solid #f8f9fa;
+
+    .arrow {
+      width: 24px;
+    }
+  }
+
+  .title {
+    @include c.fontSize(heading2);
+  }
+
+  .subTitle {
+    @include c.fontSize;
+  }
+}
