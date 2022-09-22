@@ -11,10 +11,10 @@ interface Props {
 const Slider = ({ imgs, alt }: Props) => {
   return (
     <div className={styles.slider}>
-      <Carousel showStatus={false} autoPlay>
+      <Carousel showStatus={false} showArrows={true} autoPlay showThumbs={false} infiniteLoop>
         {imgs.map((url, idx) => {
           return (
-            <div key={`slider-item-${url}`}>
+            <div className={styles.list} key={`slider-item-${url}`}>
               <Image src={url} alt={alt + '' + idx} width={358} height={224} />
             </div>
           );
