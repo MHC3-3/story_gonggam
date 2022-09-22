@@ -9,7 +9,7 @@
   .textWrap {
     position: relative;
     z-index: 1;
-    min-height: 80vh;
+    min-height: 700px;
     color: #ffffff;
 
     h1 {
@@ -37,7 +37,7 @@
       transform: translateX(-50%);
 
       li {
-        height: 6.5rem;
+        height: 110px;
         padding: 10px;
         border: 1px solid #f8f9fa;
       }

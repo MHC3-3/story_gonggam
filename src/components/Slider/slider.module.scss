@@ -1,0 +1,13 @@
+.slider {
+  position: relative;
+  padding: 15px;
+  overflow: hidden;
+
+  .carousel-root {
+    overflow: hidden;
+  }
+
+  .carousel-root .control-arrow {
+    padding-bottom: 0 !important;
+  }
+}

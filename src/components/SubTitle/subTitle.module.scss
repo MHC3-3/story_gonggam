@@ -15,9 +15,12 @@
 
   .title {
     @include c.fontSize(heading2);
+    padding: 15px;
   }
 
   .subTitle {
     @include c.fontSize;
+    padding: 0 15px;
+    margin-bottom: 25px;
   }
 }
