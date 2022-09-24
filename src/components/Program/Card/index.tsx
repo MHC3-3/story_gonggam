@@ -1,20 +1,24 @@
-import { program } from '@/types/program';
+import { program, programmodal } from 'types/program';
 import Image from 'next/image';
+import { MouseEventHandler } from 'react';
+import styles from './card.module.scss';
 
 interface Props {
   program: program;
-  onClick: () => void;
+  onClick?: MouseEventHandler;
 }
 
 const Card = ({ program, onClick }: Props) => {
   return (
-    <li>
-      <div>
-        <h3>{program.title}</h3>
-        <p>{program.info}</p>
-        <button type='button' onClick={onClick}></button>
+    <li className={styles.list}>
+      <div className={styles.textWrap}>
+        <h3 className={styles.title}>{program.title}</h3>
+        <p className={styles.info}>{program.info}</p>
+        <button type='button' onClick={onClick} className={styles.button}>
+          자세히보기
+        </button>
       </div>
-      <div>
+      <div className={styles.imgWrap}>
         <Image src={program.img} width={195} height={195} />
       </div>
     </li>

@@ -1,0 +1,41 @@
+@use 'src/styles/constants' as c;
+
+.list {
+  display: flex;
+
+  > div {
+    flex: 1;
+    max-height: 195px;
+  }
+  .textWrap {
+    position: relative;
+    .title {
+      padding: 15px 10px 5px;
+      @include c.fontSize(heading3);
+    }
+    .info {
+      padding: 0 10px;
+      font-size: 12px;
+      letter-spacing: -1px;
+      @include c.fontSize(button2);
+    }
+    .button {
+      position: absolute;
+      display: block;
+      width: 70px;
+      padding: 4px 0;
+      border: 1px solid #ced4da;
+      bottom: 10px;
+      left: 10px;
+      @include c.fontSize(button2);
+      color: #343a40;
+    }
+  }
+  .imgWrap {
+    line-height: 0;
+  }
+}
+
+.list:nth-child(2n) {
+  flex-direction: row-reverse;
+}

@@ -4,10 +4,8 @@
   max-width: 360px;
   margin: 0 auto;
   overflow: hidden;
-
+  margin-bottom: 60px;
   .list {
-    span {
-      position: static !important;
-    }
+    line-height: 0;
   }
 }
