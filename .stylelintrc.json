@@ -1,5 +1,10 @@
 {
   "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
+  "overrides": [
+    {
+      "files": ["*.scss", "**/*.scss"]
+    }
+  ],
   "plugins": ["stylelint-declaration-strict-value"],
   "rules": {
     "at-rule-empty-line-before": null,
@@ -8,12 +13,12 @@
     "color-hex-length": "long",
     "custom-property-empty-line-before": null,
     "declaration-empty-line-before": "never",
-    "function-name-case": [
-      "lower",
-      {
-        "ignoreFunctions": "/^[a-z_](|[a-zA-Z0-9]+)$/"
-      }
-    ],
+    // "function-name-case": [
+    //   "lower",
+    //   {
+    //     "ignoreFunctions": "/^[a-z_](|[a-zA-Z0-9]+)$/"
+    //   }
+    // ],
     "keyframes-name-pattern": "^[a-z][a-zA-Z0-9_]+$",
     "max-nesting-depth": 6,
     "no-descending-specificity": null,

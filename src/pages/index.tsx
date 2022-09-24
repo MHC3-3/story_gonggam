@@ -1,5 +1,6 @@
-import Slider from '@/components/Slider';
-import SubTitle from '@/components/SubTitle';
+import Program from 'components/Program';
+import Slider from 'components/Slider';
+import SubTitle from 'components/SubTitle';
 // import { getTest } from 'apis/test';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -80,6 +81,8 @@ const Home: NextPage = () => {
             subTitle='생활문화 프로그램은 누구나 신청 가능하며 난타, 기타교실, 라틴댄스, 댄스로빅, 요가 등 다양한 강습과 체험프로그램을 진행하고 있습니다.'
             onClick={sectionClick}
           />
+
+          <Program />
         </section>
         <section>
           <SubTitle

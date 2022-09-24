@@ -1,0 +1,25 @@
+{
+  "temp" : "story",
+  "id" : "1",
+  "color": "gray",
+  "who" : "토리의 집", // 있을수도있고 없을수도있고
+  "text" : "토리가 침대에 누워 자고 있다.",
+  "background" : "/img/story1",
+  "nextId" : "2", 
+  "hidden" : false,
+  "isLast" : false
+}
+
+{
+  "temp" : "question",
+  "id" : "5",
+  "number" "Q1.",
+  "question": "기상시간이 되었는지 알람소리가 들린다. 토리를 깨우는 알림음은?",
+  "background" : "/img/question1.png",
+  "answer" : {
+    1 : "흥겨운 재즈나 클래식", // 클릭했을때 서버에서 받을값(통계)
+    2 : "시끄러운 기본 알림음",
+    3 : "종아하는 아이돌 노래"
+  },
+  "nextId" : "2"
+}
