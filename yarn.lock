@@ -1320,6 +1320,11 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
+"@types/navermaps@^3.0.17":
+  version "3.0.17"
+  resolved "https://registry.yarnpkg.com/@types/navermaps/-/navermaps-3.0.17.tgz#56a554a9aa46d3851723db60a1e363668779a4ef"
+  integrity sha512-NK6z7Cw/X5n6RxduS2o4J2ImluqGjc5EREHZYryoHF5/cSYBao9xpSOXKGKzgrbmJRdC8hwHp6YzTt8Iaju32Q==
+
 "@types/node@18.7.16":
   version "18.7.16"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.16.tgz#0eb3cce1e37c79619943d2fd903919fc30850601"

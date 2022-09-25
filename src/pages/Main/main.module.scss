@@ -44,3 +44,18 @@
     }
   }
 }
+
+.definition {
+  padding: 0 15px;
+
+  dt {
+    @include c.fontSize(heading3);
+    margin-top: 15px;
+  }
+  dd {
+    @include c.fontSize(button1);
+    padding-top: 5px;
+    letter-spacing: -1px;
+    color: #495057;
+  }
+}

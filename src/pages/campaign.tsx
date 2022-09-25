@@ -1,7 +1,8 @@
+import { NextPage } from 'next';
 import React from 'react';
 
-function Campaign() {
+const Campaign: NextPage = () => {
   return <div>campaign</div>;
-}
+};
 
 export default Campaign;
