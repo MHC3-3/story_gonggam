@@ -6,7 +6,6 @@ import Program from './Program';
 import Slider from 'components/Slider';
 import SubTitle from 'components/SubTitle';
 import Map from 'components/Map';
-import Script from 'next/script';
 
 const Main = () => {
   const sectionClick = () => {};
@@ -25,7 +24,7 @@ const Main = () => {
   return (
     <main>
       <div className={styles.scrollTop}>
-        <Image src='/pngs/arrow_up.png' width={30} height={30} />
+        <Image src='/pngs/arrow_up.png' width={30} height={30} alt='scrollTop' />
       </div>
       <section className={styles.navi}>
         <div className={styles.textWrap}>
