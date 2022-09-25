@@ -12,7 +12,7 @@ function Map() {
         onReady={() => {
           var brewery = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(37.492202, 126.843095),
-            zoom: 18,
+            zoom: 16,
             zoomControl: true,
           });
 

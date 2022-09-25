@@ -24,6 +24,9 @@ const Main = () => {
   ];
   return (
     <main>
+      <div className={styles.scrollTop}>
+        <Image src='/pngs/arrow_up.png' width={30} height={30} />
+      </div>
       <section className={styles.navi}>
         <div className={styles.textWrap}>
           <h1>버들마을의 스토리 공감은 주민들이 서로 소통하고 화합하는 사랑방입니다.</h1>
@@ -88,6 +91,7 @@ const Main = () => {
       <section className={styles.map}>
         <h2>찾아오시는길</h2>
         <Map />
+        <h4>서울특별시 구로구 오류로8길 51 스토리공감</h4>
         <dl className={styles.definition}>
           <dt>이용시간</dt>
           <dd>10:00~18:00 (일요일은 휴무입니다.)</dd>
