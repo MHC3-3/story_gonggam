@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const useMap = () => {
   // Brewery
   var brewery = new naver.maps.Map('map', {
@@ -8,7 +6,7 @@ export const useMap = () => {
     zoomControl: true,
   });
 
-  var breweryMarker = new naver.maps.Marker({
+  new naver.maps.Marker({
     position: new naver.maps.LatLng(37.71344096516783, 126.8666797982575),
     map: brewery,
   });
