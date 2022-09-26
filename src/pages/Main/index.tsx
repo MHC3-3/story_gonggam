@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './main.module.scss';
-import Program from './Program';
+import Program from 'components/Program';
 import Slider from 'components/Slider';
 import SubTitle from 'components/SubTitle';
 import Map from 'components/Map';
