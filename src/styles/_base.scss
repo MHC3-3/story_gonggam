@@ -1,3 +1,5 @@
+@use 'src/styles/constants' as c;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
@@ -8,9 +10,22 @@ input,
 textarea {
   font-family: 'Pretendard', Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei', sans-serif;
   font-feature-settings: 'tnum';
+  color: c.$TEXT1;
 }
 
 button {
   background: none;
   border: none;
+}
+
+p {
+  color: c.$TEXT2;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: c.$TEXT2;
 }

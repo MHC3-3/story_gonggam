@@ -1,6 +1,6 @@
 import { program, programmodal } from 'types/program';
 import Image from 'next/image';
-import { MouseEventHandler, useState } from 'react';
+import { useState } from 'react';
 import styles from './card.module.scss';
 import Modal from './Modal';
 import cx from 'classnames';
@@ -32,7 +32,7 @@ const Card = ({ program }: Props) => {
         </button>
       </div>
       <div className={styles.imgWrap}>
-        <Image src={program.img} width={195} height={195} />
+        <Image src={program.img} width={195} height={195} alt={program.title} />
       </div>
       {open && <Modal pro={selectProgram} setOpen={setOpen} />}
     </li>

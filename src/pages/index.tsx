@@ -15,6 +15,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Main />
+      <footer>푸터(추가정보)</footer>
     </div>
   );
 };
