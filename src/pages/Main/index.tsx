@@ -6,6 +6,8 @@ import Program from 'apps/main/components/Program';
 import Slider from 'components/Slider';
 import Map from 'components/Map';
 import Floor from 'apps/main/components/Floor';
+import Script from 'next/script';
+import { useRef } from 'react';
 
 const Main = () => {
   const cafeArray = [
@@ -20,30 +22,51 @@ const Main = () => {
     '/pngs/barista/barista3.png',
     '/pngs/barista/barista4.png',
   ];
+
+  const tabRef = useRef<any>([]);
+  const mainRef = useRef<HTMLElement>(null);
   return (
-    <main>
-      <div className={styles.scrollTop}>
+    <main ref={mainRef}>
+      <button
+        type='button'
+        className={styles.scrollTop}
+        onClick={() => {
+          mainRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }}
+      >
         <Image src='/pngs/scrollTop.png' width={30} height={30} alt='scrollTop' />
-      </div>
+      </button>
       <section className={styles.navi}>
         <div className={styles.textWrap}>
           <h1>버들마을의 스토리 공감은 주민들이 서로 소통하고 화합하는 사랑방입니다.</h1>
           <ul className={styles.naviList}>
-            <li>
+            <li
+              onClick={() => {
+                tabRef.current[2].scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <span />
               <span />
               <span />
               <span />
               3층
             </li>
-            <li>
+            <li
+              onClick={() => {
+                tabRef.current[1].scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <span className={styles.noBorder} />
               <span />
               <span className={styles.noBorder} />
               <span />
               2층
             </li>
-            <li>
+            <li
+              onClick={() => {
+                tabRef.current[0].scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <span />
               <span />
               <span />
@@ -60,7 +83,7 @@ const Main = () => {
           <Image src='/pngs/campaign.png' alt='campaign' width={390} height={82} />
         </Link>
       </section>
-      <section>
+      <section ref={(el) => (tabRef.current[0] = el)}>
         <Floor
           floor='1층'
           title='Story 공감 카페'
@@ -70,7 +93,7 @@ const Main = () => {
           <Slider imgs={cafeArray} alt='cafe' />
         </Floor>
       </section>
-      <section>
+      <section ref={(el) => (tabRef.current[1] = el)}>
         <Floor
           floor='2층'
           title='생활문화지원센터'
@@ -79,7 +102,7 @@ const Main = () => {
           <Program />
         </Floor>
       </section>
-      <section>
+      <section ref={(el) => (tabRef.current[2] = el)}>
         <Floor
           floor='3층'
           title='바리스타 교육장'
