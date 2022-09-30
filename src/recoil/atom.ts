@@ -10,3 +10,8 @@ export const storyCurAtom = atom({
   key: 'storyCurrent',
   default: 0,
 });
+
+export const storyResultAtom = atom({
+  key: 'storyResult',
+  default: '',
+});
