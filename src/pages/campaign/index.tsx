@@ -22,9 +22,17 @@ const Campaign: NextPage = () => {
     setCurrent(2);
   }, []);
 
+  const nextPage = () => {
+    setCurrent(current + 1);
+  };
+
   return (
     <div className={styles.campaign}>
-      <div className={styles.bgImg}>
+      {current}
+      <div
+        className={styles.bgImg}
+        onClick={current === 9 || current === 12 || current === 23 ? nextPage : undefined}
+      >
         {story[current]?.backgroundImg && (
           <Image src={story[current]?.backgroundImg} alt={`background` + current} layout='fill' />
         )}

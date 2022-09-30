@@ -19,7 +19,6 @@
     }
     .info {
       padding: 0 10px;
-      letter-spacing: -1px;
       @include c.fontSize(button2);
     }
     .button {

@@ -16,7 +16,7 @@
   color: #868e96;
 
   .who {
-    width: 200px;
+    width: 200px !important;
     background: #868e96;
   }
   .text {
@@ -69,6 +69,7 @@
     height: 30px;
     line-height: 30px;
     text-align: center;
+    width: 85px;
   }
   .text {
     display: flex;
@@ -78,7 +79,10 @@
     border-radius: 0 6px 6px 6px;
     font-weight: 700;
     font-size: 15px;
+    padding: 0 16px;
     cursor: pointer;
+    white-space: pre-line;
+    text-align: center;
     .nextBtn {
       position: absolute;
       right: 24px;
