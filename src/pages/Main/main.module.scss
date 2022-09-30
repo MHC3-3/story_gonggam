@@ -16,6 +16,7 @@
       @include c.fontSize(heading1);
       padding: 80px 16px 0;
       letter-spacing: -1px;
+      line-height: 40px;
     }
 
     p {
@@ -162,6 +163,7 @@
     padding: 16px 16px 0;
     position: relative;
     z-index: 1;
+    line-height: 40px;
     p {
       @include c.fontSize(heading2);
       color: #fff;

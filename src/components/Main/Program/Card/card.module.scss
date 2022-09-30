@@ -19,6 +19,7 @@
     }
     .info {
       padding: 0 10px;
+      line-height: 14px;
       @include c.fontSize(button2);
     }
     .button {
