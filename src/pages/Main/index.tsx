@@ -2,11 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './main.module.scss';
-import Program from 'apps/main/components/Program';
+import Program from '@/components/Main/Program';
 import Slider from 'components/Slider';
 import Map from 'components/Map';
-import Floor from 'apps/main/components/Floor';
-import Script from 'next/script';
+import Floor from 'components/Main/Floor';
 import { useRef } from 'react';
 
 const Main = () => {
@@ -25,6 +24,7 @@ const Main = () => {
 
   const tabRef = useRef<any>([]);
   const mainRef = useRef<HTMLElement>(null);
+
   return (
     <main ref={mainRef}>
       <button

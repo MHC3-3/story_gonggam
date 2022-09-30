@@ -1,21 +1,14 @@
-import { getTest } from 'apis/template';
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import Head from 'next/head';
+
 import Main from './Main';
 
 const Home: NextPage = () => {
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    (async () => {
-      const data = await getTest();
-      setText(data || 'fail');
-      console.log(data);
-    })();
-  }, []);
-
   return (
     <div>
+      <Head>
+        <title>버틀 스토리 공감</title>
+      </Head>
       <Main />
       <footer>푸터(추가정보)</footer>
     </div>

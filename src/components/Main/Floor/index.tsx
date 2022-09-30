@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { ArrowBottomIcon, ArrowTopIcon } from 'assets/svgs';
 import { ReactNode, useState } from 'react';
 import styles from './subTitle.module.scss';
 
@@ -21,12 +21,7 @@ const Floor = ({ floor, title, subTitle, children }: Props) => {
         <div className={styles.floor}>
           {floor}
           <button className={styles.arrow} type='button' onClick={onClick}>
-            <Image
-              src={open ? '/pngs/arrow/down.png' : '/pngs/arrow/up.png'}
-              alt={open ? 'show' : 'hide'}
-              width={25}
-              height={25}
-            />
+            {open ? <ArrowBottomIcon /> : <ArrowTopIcon />}
           </button>
         </div>
         {open && (

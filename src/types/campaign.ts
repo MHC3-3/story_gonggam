@@ -10,6 +10,7 @@ export interface template {
   number?: string;
   question?: string;
   answer?: string[];
+  backgroundImg: string;
 }
 
 export interface story {
