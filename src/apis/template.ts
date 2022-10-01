@@ -1,7 +1,8 @@
 import { template } from '@/types/campaign';
+import { IgetResult } from '@/types/result';
 import endpoint from './endpoint';
 
-const getTest = async (): Promise<template[]> => {
+const getStory = async (): Promise<template[]> => {
   try {
     const response = await endpoint.get('/api/template');
     const { data } = response;
@@ -10,5 +11,14 @@ const getTest = async (): Promise<template[]> => {
     throw new Error('API template error');
   }
 };
+const getResult = async (id: string | string[] | undefined): Promise<IgetResult> => {
+  try {
+    const response = await endpoint.get(`/api/result?code=${id}`);
+    const { data } = response;
+    return data.result;
+  } catch (error) {
+    throw new Error('API result error');
+  }
+};
 
-export { getTest };
+export { getStory, getResult };

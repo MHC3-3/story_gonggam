@@ -1,5 +1,9 @@
 @use 'src/styles/constants' as c;
 
+.main {
+  background: #fff;
+}
+
 .navi {
   position: relative;
   display: flex;

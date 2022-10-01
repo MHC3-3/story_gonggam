@@ -1,12 +1,13 @@
 import { TextBox, Question } from 'components/Campaign';
 import { template } from '@/types/campaign';
-import { getTest } from 'apis/template';
+import { getStory } from 'apis/template';
 import { NextPage } from 'next';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { storyArrayAtom, storyCurAtom } from 'recoil/atom';
 import styles from './campaign.module.scss';
+import Head from 'next/head';
 
 const Campaign: NextPage = () => {
   const [story, setStory] = useRecoilState<template[]>(storyArrayAtom);
@@ -14,13 +15,13 @@ const Campaign: NextPage = () => {
 
   useEffect(() => {
     (async () => {
-      const data = await getTest();
+      const data = await getStory();
       setStory(data || []);
       console.log(data);
     })();
 
     setCurrent(2);
-  }, []);
+  }, [setCurrent, setStory]);
 
   const nextPage = () => {
     setCurrent(current + 1);
@@ -28,13 +29,19 @@ const Campaign: NextPage = () => {
 
   return (
     <div className={styles.campaign}>
+      <Head>
+        <title>버틀 스토리 공감</title>
+      </Head>
       {current}
       <div
         className={styles.bgImg}
         onClick={current === 9 || current === 12 || current === 23 ? nextPage : undefined}
       >
         {story[current]?.backgroundImg && (
-          <Image src={story[current]?.backgroundImg} alt={`background` + current} layout='fill' />
+          <picture>
+            <source srcSet={story[current]?.backgroundImg} type='image/webp' />
+            <img src={story[current]?.backgroundImg} alt={`background` + current} />
+          </picture>
         )}
       </div>
       {story[current]?.text && <TextBox />}

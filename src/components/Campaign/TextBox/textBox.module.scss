@@ -56,7 +56,6 @@
 
 .textBox {
   position: absolute;
-  font-family: 'NanumSquareRound';
   padding: 0 16px;
   width: 100%;
   bottom: 60px;
@@ -83,6 +82,7 @@
     cursor: pointer;
     white-space: pre-line;
     text-align: center;
+    background: #fff;
     .nextBtn {
       position: absolute;
       right: 24px;

@@ -26,7 +26,7 @@ const Main = () => {
   const mainRef = useRef<HTMLElement>(null);
 
   return (
-    <main ref={mainRef}>
+    <main ref={mainRef} className={styles.main}>
       <button
         type='button'
         className={styles.scrollTop}

@@ -1,18 +1,22 @@
 import { NextBtnIcon } from '@/assets/svgs';
 import { template } from '@/types/campaign';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { storyArrayAtom, storyCurAtom } from 'recoil/atom';
+import { storyArrayAtom, storyCurAtom, storyResultAtom } from 'recoil/atom';
 import styles from './textBox.module.scss';
 import cx from 'classnames';
+import { useRouter } from 'next/router';
 
 const TextBox = () => {
+  const router = useRouter();
   const story = useRecoilValue<template[]>(storyArrayAtom);
   const [current, setCurrent] = useRecoilState(storyCurAtom);
+  const result = useRecoilValue(storyResultAtom);
 
-  const { color, who, text } = story[current];
+  const { color, who, text, isLast } = story[current];
 
   const nextPage = () => {
     setCurrent(current + 1);
+    isLast && router.push(`/campaign/${result}`);
   };
 
   return (
