@@ -1,0 +1,11 @@
+.bgImg {
+  position: fixed;
+  width: 100%;
+  max-width: 390px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.displayNone {
+  display: none;
+}

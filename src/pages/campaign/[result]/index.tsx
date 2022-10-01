@@ -1,4 +1,3 @@
-import KakaoShareButton from '@/components/kakaoShareButton';
 import { IgetResult } from '@/types/result';
 import { getResult } from 'apis/template';
 import type { NextPage } from 'next';
