@@ -27,31 +27,35 @@ const StoryResult: NextPage = () => {
   const { title, description, resultToryImg, partnerModel } = outcome;
 
   return (
-    <>
+    <div className={styles.result}>
       <Script
         src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js'
         integrity='sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL'
         crossOrigin='anonymous'
       ></Script>
 
-      <section className='ToryResult'>
-        <h2>
+      <section className={styles.toryResult}>
+        <h2 className={styles.toryTitle}>
           토리의 하루를 함께 해준 당신,
           <br />
           수고했어요!
         </h2>
-        <p>
+        <p className={styles.toryP1}>
           오늘도 하나의 STORY를 만들어낸 당신을 위해 스토리공감에서
           <br />
           당신에게 어울리는 프로그램 유형을 추천해 드릴게요.
         </p>
-        <div>
+        <div className={styles.toryImg}>
           <Image src={resultToryImg} alt='result-img' width={352} height={314} />
         </div>
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <p>해당 프로그램에 대한 자세한 정보가 궁금하다면?</p>
-        <div>띠배너</div>
+        <h3 className={styles.subTitle}>{title}</h3>
+        <p className={styles.toryP2}>{description}</p>
+        <p className={styles.toryP3}>해당 프로그램에 대한 자세한 정보가 궁금하다면?</p>
+        <div className={styles.shortcuts}>
+          <Link href={'/'}>
+            <Image src={'/pngs/shortcuts.png'} alt='result-img' layout='fill' />
+          </Link>
+        </div>
       </section>
       <section className='BestPartner'>
         <h3>나와 잘 맞는 토리</h3>
@@ -104,7 +108,7 @@ const StoryResult: NextPage = () => {
         <p>스토리 공감에 대한 자세한 정보가 궁금하다면?</p>
         <div>띠배너</div>
       </section>
-    </>
+    </div>
   );
 };
 
