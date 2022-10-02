@@ -2,10 +2,23 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { storyArrayAtom, storyCurAtom } from 'recoil/atom';
 import styles from './background.module.scss';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 const Background = () => {
   const story = useRecoilValue(storyArrayAtom);
   const [current, setCurrent] = useRecoilState(storyCurAtom);
+
+  useEffect(() => {
+    if (story[current].temp === 'loading') {
+      const timer = setTimeout(() => {
+        setCurrent(current + 1);
+      }, 3000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [current, setCurrent, story]);
 
   const nextPage = () => {
     setCurrent(current + 1);
@@ -13,10 +26,7 @@ const Background = () => {
   return (
     <div>
       {story[current]?.backgroundImg && (
-        <div
-          className={styles.bgImg}
-          onClick={current === 9 || current === 12 || current === 23 ? nextPage : undefined}
-        >
+        <div className={styles.bgImg}>
           <Image
             src={story[current]?.backgroundImg}
             alt={`background` + current}

@@ -20,7 +20,7 @@ const AnswerList = () => {
       {answer?.map((answer, idx) => (
         <button
           type='button'
-          onClick={() => nextPage(idx)}
+          onClick={() => nextPage(idx + 1)}
           key={answer + idx}
           className={styles.button}
         >

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-import { Children, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './result.module.scss';
 
 const StoryResult: NextPage = () => {
@@ -30,11 +30,7 @@ const StoryResult: NextPage = () => {
 
   return (
     <div className={styles.result}>
-      {/* <Script
-        src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js'
-        integrity='sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL'
-        crossOrigin='anonymous'
-      ></Script> */}
+      <Script src='https://developers.kakao.com/sdk/js/kakao.js' />
       <section className={styles.toryResult}>
         <h2 className={styles.toryTitle}>
           토리의 하루를 함께 해준 당신,

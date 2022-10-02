@@ -13,5 +13,5 @@ export const storyCurAtom = atom({
 
 export const storyResultAtom = atom({
   key: 'storyResult',
-  default: '121221',
+  default: '',
 });

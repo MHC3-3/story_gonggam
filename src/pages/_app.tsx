@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app';
 import Layout from '@/components/Layout';
 import { RecoilRoot } from 'recoil';
 import Script from 'next/script';
-import Head from 'next/head';
 
 declare global {
   interface Window {

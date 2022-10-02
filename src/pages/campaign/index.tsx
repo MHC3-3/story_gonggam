@@ -4,8 +4,8 @@ import { getStory } from 'apis/template';
 import { NextPage } from 'next';
 
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { storyArrayAtom, storyCurAtom } from 'recoil/atom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { storyArrayAtom, storyCurAtom, storyResultAtom } from 'recoil/atom';
 import styles from './campaign.module.scss';
 import Head from 'next/head';
 import Background from '@/components/Campaign/Background';
@@ -13,6 +13,7 @@ import Background from '@/components/Campaign/Background';
 const Campaign: NextPage = () => {
   const [story, setStory] = useRecoilState<template[]>(storyArrayAtom);
   const [current, setCurrent] = useRecoilState(storyCurAtom);
+  const setResult = useSetRecoilState(storyResultAtom);
 
   useEffect(() => {
     (async () => {
@@ -21,8 +22,9 @@ const Campaign: NextPage = () => {
       console.log(data);
     })();
 
-    setCurrent(2);
-  }, [setCurrent, setStory]);
+    setCurrent(0);
+    setResult('');
+  }, [setCurrent, setResult, setStory]);
 
   return (
     <div className={styles.campaign}>
