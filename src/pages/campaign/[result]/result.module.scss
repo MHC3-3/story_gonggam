@@ -1,41 +1,45 @@
 @use 'src/styles/constants' as c;
 
 .result {
+  font-family: NanumSquareRound;
   text-align: center;
-  font-family: 'NanumSquareRound';
+
+  h2,
+  h3 {
+    color: #875300;
+  }
 
   .toryResult {
     .toryTitle {
-      font-weight: 800;
-      font-size: 22px;
-      color: #875300;
       margin-top: 60px;
+      font-size: 22px;
+      font-weight: 800;
     }
 
     .toryP1 {
-      font-weight: 400;
-      font-size: 13px;
-      color: #868e96;
       margin: 20px 0;
+      font-size: 13px;
+      font-weight: 400;
+      color: #868e96;
     }
 
     .subTitle {
-      font-weight: 800;
+      margin-top: 20px;
       font-size: 17px;
-      color: #875300;
+      font-weight: 800;
     }
 
     .toryP2 {
-      font-weight: 700;
-      font-size: 15px;
-      white-space: pre-line;
       padding: 0 16px;
-      margin: 15px 0 35px 0;
+      margin: 15px 0 35px;
+      font-size: 15px;
+      font-weight: 700;
+      white-space: pre-line;
     }
 
     .toryP3 {
-      font-weight: 700;
       font-size: 12px;
+      font-weight: 700;
       color: #495057;
     }
 
@@ -47,5 +51,104 @@
   }
 
   .bestPartner {
+    .title {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .partnerImg {
+    }
+
+    .subTitle {
+      margin: 15px 0 40px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #875300;
+    }
+
+    .link {
+      display: block;
+      height: 60px;
+      margin: 0 16px;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 60px;
+      color: #875300;
+      border: 1px solid #875300;
+      border-radius: 6px;
+    }
   }
+
+  .programBanner {
+    p {
+      padding: 0 16px;
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #495057;
+      text-align: left;
+    }
+
+    h3 {
+      margin: 15px 0;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .copyBtn {
+      width: 100px;
+      padding: 6px 0;
+      font-size: 12px;
+      font-weight: 400;
+      color: #875300;
+      border: 1px solid #875300;
+      border-radius: 20px;
+    }
+  }
+
+  .snsShare {
+    h3 {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .shareList {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0 30px;
+
+      button {
+        position: relative;
+        display: block;
+        width: 56px;
+        height: 56px;
+        overflow: hidden;
+        background: #e9ecef;
+        border-radius: 100%;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 11px;
+        font-weight: 400;
+        color: #212529;
+      }
+    }
+
+    .shareP {
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #495057;
+    }
+  }
+}
+
+.hr {
+  display: block;
+  height: 1px;
+  margin: 25px 0;
+  background: #ced4da;
 }

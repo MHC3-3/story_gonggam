@@ -6,4 +6,16 @@ import ArrowTopIcon from './arrow/up.svg';
 import ArrowRightIcon from './arrow/right.svg';
 import ArrowBottomIcon from './arrow/down.svg';
 
-export { NextBtnIcon, CloseIcon, ArrowLeftIcon, ArrowTopIcon, ArrowRightIcon, ArrowBottomIcon };
+import ImgSaveIcon from './imgSave.svg';
+import LinkChainIcon from './linkChain.svg';
+
+export {
+  LinkChainIcon,
+  ImgSaveIcon,
+  NextBtnIcon,
+  CloseIcon,
+  ArrowLeftIcon,
+  ArrowTopIcon,
+  ArrowRightIcon,
+  ArrowBottomIcon,
+};

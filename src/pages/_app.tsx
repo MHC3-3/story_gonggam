@@ -6,6 +6,12 @@ import { RecoilRoot } from 'recoil';
 import Script from 'next/script';
 import Head from 'next/head';
 
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -19,6 +25,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MPKR97K');`,
         }}
+      />
+      <Script
+        src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js'
+        integrity='sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL'
+        crossOrigin='anonymous'
       />
 
       <RecoilRoot>

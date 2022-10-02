@@ -38,7 +38,13 @@ const Main = () => {
       </button>
       <section className={styles.navi}>
         <div className={styles.textWrap}>
-          <h1>버들마을의 스토리 공감은 주민들이 서로 소통하고 화합하는 사랑방입니다.</h1>
+          <h1>
+            버들마을의 스토리 공감은
+            <br />
+            주민들이 서로 소통하고
+            <br />
+            화합하는 사랑방입니다.
+          </h1>
           <ul className={styles.naviList}>
             <li
               onClick={() => {

@@ -3,7 +3,7 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com'],
+    domains: ['mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com', 'developers.kakao.com'],
   },
   reactStrictMode: true,
   swcMinify: true,
