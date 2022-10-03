@@ -1,5 +1,6 @@
 import { template } from '@/types/campaign';
 import { IgetResult } from '@/types/result';
+import { GetServerSideProps } from 'next';
 import endpoint from './endpoint';
 
 const getStory = async (): Promise<template[]> => {

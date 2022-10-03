@@ -25,12 +25,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MPKR97K');`,
         }}
       />
-      <Script
-        src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js'
-        integrity='sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL'
-        crossOrigin='anonymous'
-      />
-
       <RecoilRoot>
         <noscript
           dangerouslySetInnerHTML={{

@@ -1,36 +1,34 @@
 import { ImgSaveIcon, LinkChainIcon } from '@/assets/svgs';
 import KakaoShareButton from '@/components/kakaoShareButton';
-import { IgetResult } from '@/types/result';
-import { getResult } from 'apis/template';
-import type { NextPage } from 'next';
+import { IgetResult, IResResult } from '@/types/result';
+import endpoint from 'apis/endpoint';
+import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import styles from './result.module.scss';
 
-const StoryResult: NextPage = () => {
+const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
-  const { result } = router.query;
   const [outcome, setOutCome] = useState<IgetResult>();
 
   useEffect(() => {
-    if (!router.isReady) return;
-    (async () => {
-      const data = await getResult(result);
-      setOutCome(data);
-      console.log(data);
-    })();
-  }, [result, router.isReady]);
+    setOutCome(props.data);
+  }, [props.data]);
 
-  if (!outcome) return <div>잘못들어오심</div>;
+  if (router.isFallback) return <div>로딩중</div>;
+
+  if (!outcome) return null;
 
   const { title, description, resultToryImg, partnerModel } = outcome;
 
   return (
     <div className={styles.result}>
-      <Script src='https://developers.kakao.com/sdk/js/kakao.js' />
+      <Head>
+        <title>{title}</title>
+      </Head>
       <section className={styles.toryResult}>
         <h2 className={styles.toryTitle}>
           토리의 하루를 함께 해준 당신,
@@ -133,3 +131,41 @@ const StoryResult: NextPage = () => {
 };
 
 export default StoryResult;
+
+export const getStaticPaths = async () => {
+  // // posts를 받기 위해 fetch
+  // const res = await endpoint.get(`/api/result`);
+  // const posts = await res.json()
+
+  // // pre-render할 Path를 얻음 (posts를 통해서)
+  // const paths = posts.map((post) => ({
+  //   params: { id: post.id },
+  // }))
+
+  // // 우리는 오로지 이 path들만 빌드타임에 프리렌더 함
+  // // { fallback: false } 는 다른 routes들은 404임을 의미
+  // // true이면 만들어지지 않은 것도 추후 요청이 들어오면 만들어 줄 거라는 뜻
+  // return { paths, fallback: false }
+
+  return {
+    paths: [{ params: { result: '111111' } }],
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  try {
+    const response = await endpoint.get<IResResult>(`/api/result?code=${params?.result}`);
+    const data = response.data.result;
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {},
+    };
+  }
+};

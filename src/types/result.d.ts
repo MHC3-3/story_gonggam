@@ -1,4 +1,4 @@
-interface RootObject {
+interface IResResult {
   isSuccess: boolean;
   code: number;
   message: string;

@@ -29,7 +29,7 @@ const Campaign: NextPage = () => {
   return (
     <div className={styles.campaign}>
       <Head>
-        <title>버틀 스토리 공감</title>
+        <title>토리의 하루</title>
       </Head>
       {story[current]?.backgroundImg && <Background />}
       {story[current]?.text && <TextBox />}
