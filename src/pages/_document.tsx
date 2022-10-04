@@ -15,7 +15,6 @@ function Document() {
       </Head>
       <body>
         <Main />
-        <div id='modal'></div>
         <NextScript />
       </body>
     </Html>

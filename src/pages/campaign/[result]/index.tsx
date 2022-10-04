@@ -8,7 +8,7 @@ import html2canvas from 'html2canvas';
 
 import styles from './result.module.scss';
 import { ImgSaveIcon, LinkChainIcon } from '@/assets/svgs';
-import { IgetResult, IResResult } from '@/types/result';
+import { IgetResult, IResResult, IResResultAll } from '@/types/result';
 import endpoint from 'apis/endpoint';
 import KakaoShareButton from '@/components/kakaoShareButton';
 import Popup from '@/components/Result/Popup';
@@ -163,23 +163,19 @@ export default StoryResult;
 
 export const getStaticPaths = async () => {
   // // posts를 받기 위해 fetch
-  // const res = await endpoint.get(`/api/result`);
-  // const posts = await res.json()
+  const res = await endpoint.get(`/api/result/case`);
 
-  // // pre-render할 Path를 얻음 (posts를 통해서)
-  // const paths = posts.map((post) => ({
-  //   params: { id: post.id },
-  // }))
+  const posts = await res.data.result;
 
-  // // 우리는 오로지 이 path들만 빌드타임에 프리렌더 함
-  // // { fallback: false } 는 다른 routes들은 404임을 의미
-  // // true이면 만들어지지 않은 것도 추후 요청이 들어오면 만들어 줄 거라는 뜻
-  // return { paths, fallback: false }
+  // pre-render할 Path를 얻음 (posts를 통해서)
+  const paths = posts.map((post: any) => ({
+    params: { result: post.code },
+  }));
 
-  return {
-    paths: [{ params: { result: '111111' } }],
-    fallback: false,
-  };
+  // 우리는 오로지 이 path들만 빌드타임에 프리렌더 함
+  // { fallback: false } 는 다른 routes들은 404임을 의미
+  // true이면 만들어지지 않은 것도 추후 요청이 들어오면 만들어 줄 거라는 뜻
+  return { paths, fallback: false };
 };
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {

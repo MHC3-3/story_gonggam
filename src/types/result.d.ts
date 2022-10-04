@@ -1,4 +1,4 @@
-interface IResResult {
+export interface IResResult {
   isSuccess: boolean;
   code: number;
   message: string;
@@ -19,4 +19,15 @@ interface PartnerModel {
   partnerName: string;
   partnerTitle: string;
   partnerImg: string;
+}
+
+export interface IResResultAll {
+  isSuccess: boolean;
+  code: number;
+  message: string;
+  result: Result;
+}
+
+interface resultAll {
+  code: sting;
 }

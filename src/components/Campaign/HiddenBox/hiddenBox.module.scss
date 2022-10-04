@@ -1,0 +1,16 @@
+.hidden {
+  .hiddenBtn {
+    position: absolute;
+    top: 44%;
+    right: 0;
+    display: block;
+    width: 70px;
+    height: 150px;
+  }
+  .closeBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 3;
+  }
+}

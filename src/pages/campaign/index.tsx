@@ -1,30 +1,24 @@
-import { TextBox, Question } from 'components/Campaign';
+import { TextBox, Question, Background, HiddenBox } from 'components/Campaign';
 import { template } from '@/types/campaign';
 import { getStory } from 'apis/template';
-import { NextPage } from 'next';
+import { InferGetStaticPropsType, NextPage } from 'next';
 
 import { useEffect } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { storyArrayAtom, storyCurAtom, storyResultAtom } from 'recoil/atom';
 import styles from './campaign.module.scss';
 import Head from 'next/head';
-import Background from '@/components/Campaign/Background';
 
-const Campaign: NextPage = () => {
+const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [story, setStory] = useRecoilState<template[]>(storyArrayAtom);
   const [current, setCurrent] = useRecoilState(storyCurAtom);
   const setResult = useSetRecoilState(storyResultAtom);
 
   useEffect(() => {
-    (async () => {
-      const data = await getStory();
-      setStory(data || []);
-      console.log(data);
-    })();
-
+    setStory(props.data);
     setCurrent(0);
     setResult('');
-  }, [setCurrent, setResult, setStory]);
+  }, [props, setCurrent, setResult, setStory]);
 
   return (
     <div className={styles.campaign}>
@@ -34,8 +28,13 @@ const Campaign: NextPage = () => {
       {story[current]?.backgroundImg && <Background />}
       {story[current]?.text && <TextBox />}
       {story[current]?.question && <Question />}
+      {story[current]?.hidden && <HiddenBox />}
     </div>
   );
+};
+
+export const getStaticProps = async () => {
+  return getStory();
 };
 
 export default Campaign;
