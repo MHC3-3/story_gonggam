@@ -1,9 +1,9 @@
-import { TextBox, Question, Background, HiddenBox } from 'components/Campaign';
+import { TextBox, Question, Background, HiddenBox, Intro } from 'components/Campaign';
 import { template } from '@/types/campaign';
 import { getStory } from 'apis/template';
 import { InferGetStaticPropsType, NextPage } from 'next';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { storyArrayAtom, storyCurAtom, storyResultAtom } from 'recoil/atom';
 import styles from './campaign.module.scss';
@@ -13,8 +13,9 @@ import { useRouter } from 'next/router';
 const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [story, setStory] = useRecoilState<template[]>(storyArrayAtom);
   const [current, setCurrent] = useRecoilState(storyCurAtom);
-  const router = useRouter();
   const setResult = useSetRecoilState(storyResultAtom);
+
+  const [intro, setIntro] = useState(true);
 
   //초기화
   useEffect(() => {
@@ -28,10 +29,17 @@ const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps
       <Head>
         <title>토리의 하루</title>
       </Head>
-      {story[current]?.backgroundImg && <Background />}
-      {story[current]?.text && <TextBox />}
-      {story[current]?.question && <Question />}
-      {story[current]?.hidden && <HiddenBox />}
+
+      {intro ? (
+        <Intro setIntro={setIntro} />
+      ) : (
+        <>
+          {story[current]?.backgroundImg && <Background />}
+          {story[current]?.text && <TextBox />}
+          {story[current]?.question && <Question />}
+          {story[current]?.hidden && <HiddenBox />}
+        </>
+      )}
     </div>
   );
 };

@@ -1,0 +1,69 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.intro {
+  position: relative;
+  height: 100vh;
+
+  .firstBg {
+    z-index: 4;
+    opacity: 0;
+    transition: all 1s;
+    p {
+      position: absolute;
+      width: 100%;
+      top: 30%;
+      left: 50%;
+      z-index: 5;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      font-weight: 800;
+      font-size: 22px;
+      color: #875300;
+      line-height: 25px;
+    }
+  }
+
+  .fadeOut {
+    opacity: 1;
+    z-index: 15 !important;
+  }
+
+  .bgImg {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    max-width: 390px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .btnWrap {
+    position: absolute;
+    padding: 0 16px;
+    bottom: 11%;
+    width: 100%;
+    p {
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 6px;
+      text-align: center;
+      color: #875300;
+    }
+    .introBtn {
+      border-radius: 6px;
+      background: #875300;
+      width: 100%;
+      height: 60px;
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}
