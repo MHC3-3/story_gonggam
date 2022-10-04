@@ -22,14 +22,29 @@
       font-weight: 400;
       color: #868e96;
     }
+    .toryImgWrap {
+      height: 363px;
+      .toryImg {
+        position: relative;
+        width: 352px;
+        height: 306px;
+        margin: 0 auto;
 
-    .subTitle {
-      margin-top: 20px;
-      font-size: 17px;
-      font-weight: 800;
-      padding-bottom: 20px;
+        // span {
+        //   position: static !important;
+        // }
+        img {
+          position: relative;
+          width: 100%;
+        }
+      }
+      .subTitle {
+        margin-top: 20px;
+        font-size: 17px;
+        font-weight: 800;
+        padding-bottom: 20px;
+      }
     }
-
     .toryP2 {
       padding: 0 16px;
       margin: 15px 0 35px;

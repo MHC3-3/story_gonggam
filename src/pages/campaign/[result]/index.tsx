@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
@@ -22,8 +23,10 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
   const URL = 'https://www.story-gonggam.com/campaign/' + router.query.result;
 
   const handleCaptureClick = () => {
-    html2canvas(document.getElementById('resultTory') as HTMLElement).then((canvas) => {
-      onSaveAs(canvas.toDataURL('image/png'), 'tory.png');
+    html2canvas(document.getElementById('resultTory') as HTMLElement, {
+      useCORS: true,
+    }).then((canvas) => {
+      onSaveAs(canvas.toDataURL(), 'tory.png');
     });
   };
 
@@ -33,16 +36,25 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     openCopyPopup();
   };
 
+  // const onSaveAs = (uri: string, filename: string) => {
+  //   var win = window.open();
+  //   win?.document.open();
+  //   win?.document.write('<iframe src="' + uri + '" width="100%"></iframe>');
+  //   const link = document.createElement('a');
+  //   win?.document.body.appendChild(link);
+  //   link.href = uri;
+  //   link.download = filename;
+  //   link.click();
+  //   win?.close();
+  // };
+
   const onSaveAs = (uri: string, filename: string) => {
-    var win = window.open();
-    win?.document.open();
-    win?.document.write('<iframe src="' + uri + '" frameborder="0"></iframe>');
     const link = document.createElement('a');
-    win?.document.body.appendChild(link);
+    document.body.appendChild(link);
     link.href = uri;
     link.download = filename;
     link.click();
-    win?.close();
+    document.body.removeChild(link);
   };
 
   const openCopyPopup = () => {
@@ -61,7 +73,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
 
   if (!outcome) return null;
 
-  const { title, description, resultToryImg, partnerModel } = outcome;
+  const { title, description, partnerModel, name } = outcome;
 
   return (
     <div className={styles.result}>
@@ -82,9 +94,9 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           <br />
           당신에게 어울리는 프로그램 유형을 추천해 드릴게요.
         </p>
-        <div id='resultTory'>
+        <div id='resultTory' className={styles.toryImgWrap}>
           <div className={styles.toryImg}>
-            <Image src={resultToryImg} alt='result-img' width={352} height={314} />
+            <img src={`/pngs/result/` + name + `.png`} alt='result-img' />
           </div>
           <h3 className={styles.subTitle}>{title}</h3>
         </div>
@@ -124,7 +136,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           className={styles.copyBtn}
           onClick={() => handleClipboardButtonClick('#버들마을 #스토리공감 #토리의하루')}
         >
-          해쉬태그 복사하기
+          해시태그 복사하기
         </button>
       </section>
       <hr className={styles.hr} />
