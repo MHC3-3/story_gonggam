@@ -16,7 +16,7 @@ const Modal = ({ pro, setOpen }: Props) => {
       <button type='button' onClick={() => setOpen(false)} className={styles.button}>
         <CloseIcon />
       </button>
-      <h3>{pro.subTitle}</h3>
+      <h3 className={styles.subTitle}>{pro.subTitle}</h3>
       <h3>프로그램 교육 시간 및 장소</h3>
       <p>{pro.time}</p>
       <p>{pro.place}</p>

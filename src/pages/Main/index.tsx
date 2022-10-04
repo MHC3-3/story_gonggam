@@ -7,6 +7,7 @@ import Slider from 'components/Slider';
 import Map from 'components/Map';
 import Floor from 'components/Main/Floor';
 import { useRef } from 'react';
+import Footer from '@/components/Footer';
 
 const Main = () => {
   const cafeArray = [
@@ -142,24 +143,33 @@ const Main = () => {
       </section>
       <section className={styles.infoWrap}>
         <div className={styles.textWrap}>
-          <p>
-            서울시 구로구 오류2동 주민공동 이용시설 &apos;버들마을 스토리공감&apos;은 주민들이
-            주도적으로 공동체를 형성하고 마을재생 사업을 구로구와 서울시가 함께 펼친 관리형 주거
-            환경 개선사업으로 조성 되었습니다.
-          </p>
+          <h3>
+            버들마을 스토리공감은
+            <br />
+            주민들이 주도적으로 공동체를 형성하고
+            <br />
+            마을재생 사업을 구로구와 서울시가 함께 펼친 관리형 주거 환경 개선사업으로 조성
+            되었습니다.
+          </h3>
+          <hr />
           <p>
             재개발, 재건축 등의 전면 철거방식이 아닌 그지역 원주민의 의견을 반영해 마을의 물리적,
-            사회 문화적, 경제적 환경을 종합적으로 개선해 나가는 주민 참여형 재생 방식으로 1층에는
-            주민 공유공간인 마을카페, 2층에는 생활문화지원센터, 3층에는 바리스타 아카데미 교육장이
-            갖춰져 있습니다.
+            사회 문화적, 경제적 환경을 종합적으로 개선해 나가는 주민 참여형 재생 방식입니다.
+            <span>1층에는 주민 공유공간인 마을카페,</span>
+            <span>2층에는 생활문화지원센터,</span>
+            <span>3층에는 바리스타 아카데미 교육장이 갖춰져 있습니다.</span>
           </p>
-          <p>
-            생활문화 프로그램은 누구나 신청 가능하며 다양한 강습과 체험 프로그램을 진행하고
-            있습니다.
-          </p>
+
+          <hr />
+          <h4>
+            생활문화 프로그램은 누구나 신청 가능하며
+            <br />
+            다양한 강습과 체험 프로그램을 진행하고 있습니다.
+          </h4>
         </div>
         <Image src='/pngs/info.png' layout='fill' alt='info' />
       </section>
+      <Footer />
     </main>
   );
 };

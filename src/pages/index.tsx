@@ -10,7 +10,6 @@ const Home: NextPage = () => {
         <title>버들 스토리 공감</title>
       </Head>
       <Main />
-      <footer>푸터(추가정보)</footer>
     </div>
   );
 };
