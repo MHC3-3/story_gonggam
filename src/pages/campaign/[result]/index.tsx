@@ -28,6 +28,10 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     }).then((canvas) => {
       onSaveAs(canvas.toDataURL(), 'tory.png');
     });
+
+    window.dataLayer.push({
+      event: 'kakao_share',
+    });
   };
 
   const handleClipboardButtonClick = (string: string) => {
@@ -35,18 +39,6 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
 
     openCopyPopup();
   };
-
-  // const onSaveAs = (uri: string, filename: string) => {
-  //   var win = window.open();
-  //   win?.document.open();
-  //   win?.document.write('<iframe src="' + uri + '" width="100%"></iframe>');
-  //   const link = document.createElement('a');
-  //   win?.document.body.appendChild(link);
-  //   link.href = uri;
-  //   link.download = filename;
-  //   link.click();
-  //   win?.close();
-  // };
 
   const onSaveAs = (uri: string, filename: string) => {
     const link = document.createElement('a');

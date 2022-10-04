@@ -34,7 +34,7 @@ const Card = ({ program }: Props) => {
       <div className={styles.imgWrap}>
         <Image src={program.img} width={195} height={195} alt={program.title} />
       </div>
-      {open && <Modal pro={selectProgram} setOpen={setOpen} />}
+      <Modal pro={selectProgram} setOpen={setOpen} />
     </li>
   );
 };

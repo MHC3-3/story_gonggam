@@ -4,8 +4,13 @@
   background: #fff;
 }
 .campaign {
-  position: relative;
-  height: 82px;
+  margin-bottom: 20px;
+
+  a {
+    position: relative;
+    height: 82px;
+    display: block;
+  }
 }
 .navi {
   position: relative;
