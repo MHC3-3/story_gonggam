@@ -11,15 +11,26 @@ import { ImgSaveIcon, LinkChainIcon } from '@/assets/svgs';
 import { IgetResult, IResResult } from '@/types/result';
 import endpoint from 'apis/endpoint';
 import KakaoShareButton from '@/components/kakaoShareButton';
+import Popup from '@/components/Result/Popup';
 
 const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [outcome, setOutCome] = useState<IgetResult>();
+  const [showPopup, setShowPopup] = useState(false);
+  let popupDelay: NodeJS.Timer;
+
+  const URL = 'https://www.story-gonggam.com/campaign/' + router.query.result;
 
   const handleCaptureClick = () => {
     html2canvas(document.getElementById('resultTory') as HTMLElement).then((canvas) => {
       onSaveAs(canvas.toDataURL('image/png'), 'tory.png');
     });
+  };
+
+  const handleClipboardButtonClick = (string: string) => {
+    navigator.clipboard.writeText(string);
+
+    openCopyPopup();
   };
 
   const onSaveAs = (uri: string, filename: string) => {
@@ -32,6 +43,14 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     link.download = filename;
     link.click();
     win?.close();
+  };
+
+  const openCopyPopup = () => {
+    setShowPopup(true);
+    if (popupDelay) clearTimeout(popupDelay);
+    popupDelay = setTimeout(() => {
+      setShowPopup(false);
+    }, 800);
   };
 
   useEffect(() => {
@@ -49,6 +68,9 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
       <Head>
         <title>{title}</title>
       </Head>
+      <div className={styles.popupWrapper}>
+        <Popup popupMessage='클립보드에 복사되었습니다.' showPopup={showPopup} />
+      </div>
       <section className={styles.toryResult}>
         <h2 className={styles.toryTitle}>
           토리의 하루를 함께 해준 당신,
@@ -100,9 +122,8 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
         <h3>#버들마을 #스토리공감 #토리의하루</h3>
         <button
           className={styles.copyBtn}
-          onClick={() => navigator.clipboard.writeText('#버들마을 #스토리공감 #토리의하루')}
+          onClick={() => handleClipboardButtonClick('#버들마을 #스토리공감 #토리의하루')}
         >
-          {/* TODO:알림창 */}
           해쉬태그 복사하기
         </button>
       </section>
@@ -112,33 +133,18 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
         <ul className={styles.shareList}>
           <li>
             <KakaoShareButton />
-            {/* <Image
-                src='https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png'
-                alt='kakao-share-icon'
-                layout='fill'
-              /> */}
             <p>카카오톡</p>
           </li>
           <li>
-            <button>
+            <button onClick={() => handleClipboardButtonClick(URL)}>
               <LinkChainIcon />
             </button>
             <p>링크복사</p>
           </li>
           <li>
-            {/* <div className='down_btn'>
-              <a
-                href='https://mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com/resultToryImg/dance.png'
-                download
-              >
-                <button>이미지</button>
-              </a>
-            </div> */}
-
             <button onClick={handleCaptureClick}>
               <ImgSaveIcon />
             </button>
-
             <p>이미지저장</p>
           </li>
         </ul>
