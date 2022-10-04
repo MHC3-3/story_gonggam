@@ -20,9 +20,6 @@ const Background = () => {
     }
   }, [current, setCurrent, story]);
 
-  const nextPage = () => {
-    setCurrent(current + 1);
-  };
   return (
     <div>
       {story[current]?.backgroundImg && (

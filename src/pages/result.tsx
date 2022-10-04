@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import React, { useEffect } from 'react';
 import KakaoShareButton from '@/components/kakaoShareButton';
 
 const ResultPage: NextPage = () => {

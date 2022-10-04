@@ -1,18 +1,38 @@
-import { ImgSaveIcon, LinkChainIcon } from '@/assets/svgs';
-import KakaoShareButton from '@/components/kakaoShareButton';
-import { IgetResult, IResResult } from '@/types/result';
-import endpoint from 'apis/endpoint';
+import { useEffect, useState } from 'react';
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import html2canvas from 'html2canvas';
+
 import styles from './result.module.scss';
+import { ImgSaveIcon, LinkChainIcon } from '@/assets/svgs';
+import { IgetResult, IResResult } from '@/types/result';
+import endpoint from 'apis/endpoint';
+import KakaoShareButton from '@/components/kakaoShareButton';
 
 const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [outcome, setOutCome] = useState<IgetResult>();
+
+  const handleCaptureClick = () => {
+    html2canvas(document.getElementById('resultTory') as HTMLElement).then((canvas) => {
+      onSaveAs(canvas.toDataURL('image/png'), 'tory.png');
+    });
+  };
+
+  const onSaveAs = (uri: string, filename: string) => {
+    var win = window.open();
+    win?.document.open();
+    win?.document.write('<iframe src="' + uri + '" frameborder="0"></iframe>');
+    const link = document.createElement('a');
+    win?.document.body.appendChild(link);
+    link.href = uri;
+    link.download = filename;
+    link.click();
+    win?.close();
+  };
 
   useEffect(() => {
     setOutCome(props.data);
@@ -40,13 +60,14 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           <br />
           당신에게 어울리는 프로그램 유형을 추천해 드릴게요.
         </p>
-        <div>
+        <div id='resultTory'>
           <div className={styles.toryImg}>
             <Image src={resultToryImg} alt='result-img' width={352} height={314} />
           </div>
           <h3 className={styles.subTitle}>{title}</h3>
-          <p className={styles.toryP2}>{description}</p>
         </div>
+        <p className={styles.toryP2}>{description}</p>
+
         <p className={styles.toryP3}>해당 프로그램에 대한 자세한 정보가 궁금하다면?</p>
         <div className={styles.shortcuts}>
           <Link href={'/'}>
@@ -113,9 +134,11 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
                 <button>이미지</button>
               </a>
             </div> */}
-            <button>
+
+            <button onClick={handleCaptureClick}>
               <ImgSaveIcon />
             </button>
+
             <p>이미지저장</p>
           </li>
         </ul>
