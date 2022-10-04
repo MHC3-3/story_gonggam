@@ -8,7 +8,7 @@ import html2canvas from 'html2canvas';
 
 import styles from './result.module.scss';
 import { ImgSaveIcon, LinkChainIcon } from '@/assets/svgs';
-import { IgetResult, IResResult, IResResultAll } from '@/types/result';
+import { IgetResult, IResResult } from '@/types/result';
 import endpoint from 'apis/endpoint';
 import KakaoShareButton from '@/components/kakaoShareButton';
 import Popup from '@/components/Result/Popup';

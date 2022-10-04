@@ -8,7 +8,6 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { storyArrayAtom, storyCurAtom, storyResultAtom } from 'recoil/atom';
 import styles from './campaign.module.scss';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [story, setStory] = useRecoilState<template[]>(storyArrayAtom);

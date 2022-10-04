@@ -28,6 +28,7 @@ const Intro = ({ setIntro }: Props) => {
           깜찍한 주민이 살고 있답니다.
         </p>
         <Image
+          priority
           src='https://mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com/pageImg/page1.png'
           alt='page1'
           width={390}
@@ -37,6 +38,7 @@ const Intro = ({ setIntro }: Props) => {
       {firstShow && (
         <div className={styles.bgImg}>
           <Image
+            priority
             src='https://mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com/pageImg/page2.png'
             alt='page2'
             width={390}
