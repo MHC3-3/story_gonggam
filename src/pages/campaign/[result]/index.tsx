@@ -25,6 +25,9 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     html2canvas(document.getElementById('resultTory') as HTMLElement).then((canvas) => {
       onSaveAs(canvas.toDataURL('image/png'), 'tory.png');
     });
+    window.dataLayer.push({
+      event: 'image_save',
+    });
   };
 
   const handleClipboardButtonClick = (string: string) => {

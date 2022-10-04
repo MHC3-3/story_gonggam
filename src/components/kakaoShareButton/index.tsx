@@ -20,6 +20,9 @@ const KakaoShareButton = () => {
         description: "버들마을 주민 '토리'가 되어 스토리공감을 체험해보세요",
       },
     });
+    window.dataLayer.push({
+      event: 'kakao_share',
+    });
   };
 
   return (
