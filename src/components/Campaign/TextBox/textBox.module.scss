@@ -55,9 +55,10 @@
 }
 
 .textBox {
-  position: absolute;
+  position: fixed;
   padding: 0 16px;
   width: 100%;
+  max-width: 390px;
   bottom: 60px;
   .who {
     color: #fff;
