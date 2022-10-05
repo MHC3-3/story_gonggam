@@ -28,8 +28,9 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     }).then((canvas) => {
       onSaveAs(canvas.toDataURL(), 'tory.png');
     });
+
     window.dataLayer.push({
-      event: 'image_save',
+      event: 'kakao_share',
     });
   };
 
@@ -44,7 +45,6 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     document.body.appendChild(link);
     link.href = uri;
     link.download = filename;
-    link.target = '_blank';
     link.click();
     document.body.removeChild(link);
   };
