@@ -49,6 +49,18 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     document.body.removeChild(link);
   };
 
+  // const onSaveAs = (uri: string, filename: string) => {
+  //   var win = window.open();
+  //   win?.document.open();
+  //   win?.document.write('<iframe src="' + uri + '"></iframe>');
+  //   const link = document.createElement('a');
+  //   win?.document.body.appendChild(link);
+  //   link.href = uri;
+  //   link.download = filename;
+  //   link.click();
+  //   win?.close();
+  // };
+
   const openCopyPopup = () => {
     setShowPopup(true);
     if (popupDelay) clearTimeout(popupDelay);
