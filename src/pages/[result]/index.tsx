@@ -28,9 +28,8 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     }).then((canvas) => {
       onSaveAs(canvas.toDataURL(), 'tory.png');
     });
-
     window.dataLayer.push({
-      event: 'kakao_share',
+      event: 'image_save',
     });
   };
 
@@ -45,21 +44,10 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     document.body.appendChild(link);
     link.href = uri;
     link.download = filename;
+    link.target = '_blank';
     link.click();
     document.body.removeChild(link);
   };
-
-  // const onSaveAs = (uri: string, filename: string) => {
-  //   var win = window.open();
-  //   win?.document.open();
-  //   win?.document.write('<iframe src="' + uri + '"></iframe>');
-  //   const link = document.createElement('a');
-  //   win?.document.body.appendChild(link);
-  //   link.href = uri;
-  //   link.download = filename;
-  //   link.click();
-  //   win?.close();
-  // };
 
   const openCopyPopup = () => {
     setShowPopup(true);
@@ -108,7 +96,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
 
         <p className={styles.toryP3}>해당 프로그램에 대한 자세한 정보가 궁금하다면?</p>
         <div className={styles.shortcuts}>
-          <Link href={'/#floor2'}>
+          <Link href={'/main/#floor2'}>
             <Image src={'/pngs/shortcuts.png'} alt='result-img' layout='fill' />
           </Link>
         </div>
@@ -119,7 +107,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           <Image src={partnerModel.partnerImg} alt='best-partner-img' width={352} height={314} />
         </div>
         <p className={styles.subTitle}>{partnerModel.partnerTitle}</p>
-        <Link href={'/campaign'}>
+        <Link href={'/'}>
           <a className={styles.link}>토리의 하루 다시 경험하기</a>
         </Link>
       </section>
@@ -132,8 +120,8 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           나만의 토리 이미지를 저장해 위 해시태그와 함께 인스타그램 피드에 게재해주신 분들께 추첨을
           통해 소정의 굿즈를 드립니다.
           <br />
-          추가로 토리의 하루 속 숨겨진 히든 메시지의 퀴즈 정답을 맞춰 피드 글에 작성해 주시면 당첨
-          기회가 올라갑니다!
+          추가로 토리의 하루 속 숨겨진 히든 메시지를 찾아 피드 글에 작성해 주시면 당첨 기회가
+          올라갑니다!
         </p>
         <h3>#버들마을 #스토리공감 #토리의하루</h3>
         <button

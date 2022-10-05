@@ -16,7 +16,7 @@ const TextBox = () => {
 
   const nextPage = () => {
     setCurrent(current + 1);
-    isLast && router.push(`/campaign/${result}`);
+    isLast && router.push(`/${result}`);
   };
 
   return (

@@ -8,8 +8,9 @@ import Map from 'components/Map';
 import Floor from 'components/Main/Floor';
 import { useRef } from 'react';
 import Footer from '@/components/Footer';
+import { NextPage } from 'next';
 
-const Main = () => {
+const Main: NextPage = () => {
   const cafeArray = [
     '/pngs/cafe/cafe1.png',
     '/pngs/cafe/cafe2.png',
@@ -86,7 +87,7 @@ const Main = () => {
         <Image src='/pngs/main.png' alt='main' layout='fill' />
       </section>
       <section className={styles.campaign}>
-        <Link href={'/campaign'}>
+        <Link href={'/'}>
           <a>
             <Image src='/pngs/campaign.png' alt='campaign' layout='fill' />
           </a>
