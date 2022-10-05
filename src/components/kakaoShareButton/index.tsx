@@ -7,7 +7,6 @@ const KakaoShareButton = () => {
     if (!window.Kakao.isInitialized()) {
       // javascript key 를 이용하여 initialize
       window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY);
-      console.log(window.Kakao.isInitialized());
     }
   }, []);
 

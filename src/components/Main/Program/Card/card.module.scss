@@ -3,7 +3,7 @@
 .list {
   display: flex;
   position: relative;
-  transition: 0.6s;
+  transition: all 0.6s;
   transform-style: preserve-3d;
 
   > div {

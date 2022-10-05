@@ -3,11 +3,11 @@ import type { AppProps } from 'next/app';
 
 import Layout from '@/components/Layout';
 import { RecoilRoot } from 'recoil';
-import Script from 'next/script';
 
 declare global {
   interface Window {
     Kakao: any;
+    dataLayer: Record<string, any>[];
   }
 }
 

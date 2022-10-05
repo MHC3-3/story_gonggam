@@ -87,7 +87,9 @@ const Main = () => {
       </section>
       <section className={styles.campaign}>
         <Link href={'/campaign'}>
-          <Image src='/pngs/campaign.png' alt='campaign' layout='fill' />
+          <a>
+            <Image src='/pngs/campaign.png' alt='campaign' layout='fill' />
+          </a>
         </Link>
       </section>
       <section ref={(el) => (tabRef.current[0] = el)}>
