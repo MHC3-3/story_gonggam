@@ -23,6 +23,18 @@ const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps
     setResult('');
   }, [props, setCurrent, setResult, setStory]);
 
+  const handleResize = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className={styles.campaign}>
       <Head>
