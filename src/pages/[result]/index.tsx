@@ -28,8 +28,9 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     }).then((canvas) => {
       onSaveAs(canvas.toDataURL(), 'tory.png');
     });
+
     window.dataLayer.push({
-      event: 'image_save',
+      event: 'kakao_share',
     });
   };
 
@@ -44,7 +45,6 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
     document.body.appendChild(link);
     link.href = uri;
     link.download = filename;
-    link.target = '_blank';
     link.click();
     document.body.removeChild(link);
   };
@@ -132,8 +132,8 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           나만의 토리 이미지를 저장해 위 해시태그와 함께 인스타그램 피드에 게재해주신 분들께 추첨을
           통해 소정의 굿즈를 드립니다.
           <br />
-          추가로 토리의 하루 속 숨겨진 히든 메시지를 찾아 피드 글에 작성해 주시면 당첨 기회가
-          올라갑니다!
+          추가로 토리의 하루 속 숨겨진 히든 메시지의 퀴즈 정답을 맞춰 피드 글에 작성해 주시면 당첨
+          기회가 올라갑니다!
         </p>
         <h3>#버들마을 #스토리공감 #토리의하루</h3>
         <button

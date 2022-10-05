@@ -102,7 +102,7 @@ const Main = () => {
           <Slider imgs={cafeArray} alt='cafe' />
         </Floor>
       </section>
-      <section ref={(el) => (tabRef.current[1] = el)}>
+      <section id='floor2' ref={(el) => (tabRef.current[1] = el)}>
         <Floor
           floor='2층'
           title='생활문화지원센터'
