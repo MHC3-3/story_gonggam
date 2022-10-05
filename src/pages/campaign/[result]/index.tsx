@@ -108,7 +108,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
 
         <p className={styles.toryP3}>해당 프로그램에 대한 자세한 정보가 궁금하다면?</p>
         <div className={styles.shortcuts}>
-          <Link href={'/'}>
+          <Link href={'/#floor2'}>
             <Image src={'/pngs/shortcuts.png'} alt='result-img' layout='fill' />
           </Link>
         </div>
