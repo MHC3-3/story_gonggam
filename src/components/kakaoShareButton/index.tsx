@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 
-const KakaoShareButton = () => {
+interface Props {
+  resultName?: string;
+  title?: string;
+}
+
+const KakaoShareButton = ({ resultName, title }: Props) => {
   useEffect(() => {
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
     if (!window.Kakao.isInitialized()) {
@@ -11,12 +16,16 @@ const KakaoShareButton = () => {
   }, []);
 
   const onShareKakaoClick = () => {
+    console.log(resultName);
     window.Kakao.Share.createCustomButton({
       container: '#kakaotalk-sharing-btn',
       templateId: 83627,
       templateArgs: {
-        title: '토리의 하루 체험하기',
-        description: "버들마을 주민 '토리'가 되어 스토리공감을 체험해보세요",
+        thu:
+          `https://mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com/kakaoToryImg/` +
+          resultName +
+          `.png`,
+        title: title,
       },
     });
     window.dataLayer.push({
