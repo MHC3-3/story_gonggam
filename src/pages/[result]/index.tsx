@@ -136,7 +136,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
         <h3>공유하기</h3>
         <ul className={styles.shareList}>
           <li>
-            <KakaoShareButton />
+            <KakaoShareButton resultName={name} title={title} />
             <p>카카오톡</p>
           </li>
           <li>
