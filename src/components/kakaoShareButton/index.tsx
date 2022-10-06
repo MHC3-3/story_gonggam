@@ -22,7 +22,7 @@ const KakaoShareButton = ({ resultName, title }: Props) => {
       templateId: 83627,
       templateArgs: {
         thu:
-          `https://mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com/resultToryImg/` +
+          `https://mhc3-3tory-bucket.s3.ap-northeast-2.amazonaws.com/kakaoToryImg/` +
           resultName +
           `.png`,
         title: title,
