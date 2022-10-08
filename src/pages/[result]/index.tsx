@@ -154,7 +154,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
         </ul>
         <p className={styles.shareP}>스토리 공감에 대한 자세한 정보가 궁금하다면?</p>
         <div>
-          <Link href={'/'}>
+          <Link href={'/main'}>
             <Image src={'/pngs/shortcuts2.png'} alt='홈페이지 바로가기' width={390} height={72} />
           </Link>
         </div>
