@@ -16,7 +16,6 @@ const KakaoShareButton = ({ resultName, title }: Props) => {
   }, []);
 
   const onShareKakaoClick = () => {
-    console.log(resultName);
     window.Kakao.Share.createCustomButton({
       container: '#kakaotalk-sharing-btn',
       templateId: 83627,
