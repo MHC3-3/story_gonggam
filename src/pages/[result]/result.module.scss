@@ -99,17 +99,46 @@
   }
 
   .programBanner {
-    p {
-      padding: 0 16px;
-      margin-top: 8px;
-      font-size: 13px;
-      font-weight: 400;
-      color: #495057;
-      line-height: 18px;
-      text-align: left;
+    h3 {
+      margin: 20px 0;
+      font-size: 17px;
+      font-weight: 800;
     }
 
-    h3 {
+    h4 {
+      font-weight: 700;
+      font-size: 15px;
+      margin: 20px 0;
+    }
+
+    ol {
+      list-style: auto;
+      padding: 0 16px 0 32px;
+      li {
+        list-style: decimal;
+        line-height: 18px;
+        text-align: left;
+        letter-spacing: -1px;
+      }
+    }
+
+    .applyBtn {
+      display: block;
+      text-align: center;
+      background: #875300;
+      color: #fff;
+      margin: 20px auto;
+      height: 60px;
+      line-height: 60px;
+      max-width: 360px;
+      width: 100%;
+      border-radius: 6px;
+      color: #f8f9fa;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .copy {
       margin: 15px 0;
       font-size: 15px;
       font-weight: 700;

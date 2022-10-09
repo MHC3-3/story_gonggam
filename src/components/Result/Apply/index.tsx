@@ -1,5 +1,4 @@
 import { CloseIcon } from '@/assets/svgs';
-import { IApply, IResApply } from '@/types/result';
 import { CampaignApply } from 'apis/result';
 import { Dispatch, SetStateAction, SyntheticEvent, useState } from 'react';
 import Popup from '../Popup';

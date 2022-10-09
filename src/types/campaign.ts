@@ -33,6 +33,11 @@ export interface question {
   answer: string[];
 }
 
+export interface statistics {
+  code: string;
+  env: string | undefined;
+}
+
 // interface RootObject {
 //   isSuccess: boolean;
 //   code: number;

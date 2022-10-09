@@ -31,3 +31,15 @@ export interface IResResultAll {
 interface resultAll {
   code: sting;
 }
+
+export interface IApply {
+  name: string;
+  phoneNumber: string;
+  answer: string;
+}
+
+export interface IResApply {
+  isSuccess: boolean;
+  code: number;
+  message: string;
+}

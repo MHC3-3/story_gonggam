@@ -6,6 +6,7 @@ import styles from './textBox.module.scss';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
 import Typical from 'react-typical';
+import { resultCountUp } from 'apis/template';
 
 const TextBox = () => {
   const router = useRouter();
@@ -17,7 +18,13 @@ const TextBox = () => {
 
   const nextPage = () => {
     setCurrent(current + 1);
-    isLast && router.push(`/${result}`);
+    if (isLast) {
+      router.push(`/${result}`);
+      resultCountUp({
+        code: result,
+        env: process.env.NEXT_PUBLIC_COUNTUP,
+      });
+    }
   };
 
   return (

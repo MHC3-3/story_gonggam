@@ -19,7 +19,7 @@ const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps
   //초기화
   useEffect(() => {
     setStory(props.data);
-    setCurrent(0);
+    setCurrent(26);
     setResult('');
   }, [props, setCurrent, setResult, setStory]);
 

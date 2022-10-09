@@ -13,11 +13,13 @@ import { IgetResult, IResResult } from '@/types/result';
 import endpoint from 'apis/endpoint';
 import KakaoShareButton from '@/components/kakaoShareButton';
 import Popup from '@/components/Result/Popup';
+import Apply from '@/components/Result/Apply';
 
 const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [outcome, setOutCome] = useState<IgetResult>();
   const [showPopup, setShowPopup] = useState(false);
+  const [apply, setApply] = useState(false);
   let popupDelay: NodeJS.Timer;
 
   const URL = 'https://www.story-gonggam.com/campaign/' + router.query.result;
@@ -75,9 +77,14 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
       <div className={styles.popupWrapper}>
         <Popup popupMessage='클립보드에 복사되었습니다.' showPopup={showPopup} />
       </div>
+      {apply && (
+        <div>
+          <Apply setApply={setApply} />
+        </div>
+      )}
       <section className={styles.toryResult}>
         <h2 className={styles.toryTitle}>
-          토리의 하루를 함께 해준 당신,
+          토리의 하루를 무사히 마친 당신,
           <br />
           수고했어요!
         </h2>
@@ -113,17 +120,25 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
       </section>
       <hr className={styles.hr} />
       <section className={styles.programBanner}>
+        <h3>퀴즈를 맞추시면 선물을 드립니다.</h3>
         <div>
           <Image src={'/pngs/programBanner.png'} alt='programBanner' width={390} height={210} />
         </div>
-        <p>
-          나만의 토리 이미지를 저장해 위 해시태그와 함께 인스타그램 피드에 게재해주신 분들께 추첨을
-          통해 소정의 굿즈를 드립니다.
-          <br />
-          추가로 토리의 하루 속 숨겨진 히든 메시지를 찾아 피드 글에 작성해 주시면 당첨 기회가
-          올라갑니다!
-        </p>
-        <h3>#버들마을 #스토리공감 #토리의하루</h3>
+        <h4>토리의 하루를 참여해 주신 분들께 드리는 선물입니다.</h4>
+        <ol start={1}>
+          <li>
+            토리의 하루 스토리 화면 속 히든 메세지를 맞추 주시는 분들께 추첨을 통해 그립톡 or 휴대폰
+            거치대를 토리 스티커 굿즈와 함께 드립니다.
+          </li>
+          <li>
+            추가로 나만의 토리 이미지를 저장해 아래 해시태그와 함께 인스타그램 피드에 게재해주시면
+            토리 스티커 굿즈를 포함한 그립톡과 휴대폰 거치대 모두를 드립니다.
+          </li>
+        </ol>
+        <button type='button' className={styles.applyBtn} onClick={() => setApply(true)}>
+          퀴즈 맞추고 선물 받으러 가기
+        </button>
+        <h3 className={styles.copy}>#버들마을 #스토리공감 #토리의하루</h3>
         <button
           className={styles.copyBtn}
           onClick={() => handleClipboardButtonClick('#버들마을 #스토리공감 #토리의하루')}
@@ -192,7 +207,6 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       },
     };
   } catch (err) {
-    console.log(err);
     return {
       props: {},
     };

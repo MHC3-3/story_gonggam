@@ -1,5 +1,5 @@
 import { template } from 'types/campaign';
-import { atom, selector } from 'recoil';
+import { atom } from 'recoil';
 
 export const storyArrayAtom = atom<template[]>({
   key: 'storyArray',

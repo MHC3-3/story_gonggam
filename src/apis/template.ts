@@ -1,4 +1,4 @@
-import { template } from '@/types/campaign';
+import { statistics, template } from '@/types/campaign';
 import { IgetResult } from '@/types/result';
 import endpoint from './endpoint';
 
@@ -12,7 +12,6 @@ const getStory = async () => {
       },
     };
   } catch (err) {
-    console.log(err);
     return {
       props: {},
     };
@@ -38,7 +37,6 @@ const getResult = async (id: string | string[] | undefined) => {
       },
     };
   } catch (err) {
-    console.log(err);
     return {
       props: {},
     };
@@ -54,4 +52,8 @@ const getResult = async (id: string | string[] | undefined) => {
 //   }
 // };
 
-export { getStory, getResult };
+const resultCountUp = async (params: statistics, env = process.env.NEXT_PUBLIC_COUNTUP) => {
+  await endpoint.post(`/api/count?env=` + env, params);
+};
+
+export { getStory, getResult, resultCountUp };
