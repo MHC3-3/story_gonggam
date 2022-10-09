@@ -47,7 +47,7 @@ const Intro = ({ setIntro }: Props) => {
           <div className={styles.btnWrap}>
             <p>오늘 하루 &apos;토리&apos;가 되어 버들마을의 사랑방을 구경해보세요</p>
             <button onClick={() => setIntro(false)} className={styles.introBtn}>
-              하루동안 &apos;토리가&apos; 되어 살아보기
+              하루동안 &apos;토리&apos;가 되어 살아보기
             </button>
           </div>
         </div>

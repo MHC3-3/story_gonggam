@@ -5,6 +5,7 @@ import { storyArrayAtom, storyCurAtom, storyResultAtom } from 'recoil/atom';
 import styles from './textBox.module.scss';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
+import Typical from 'react-typical';
 
 const TextBox = () => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const TextBox = () => {
     <div className={cx(color && styles[color], styles.textBox)}>
       {who && <div className={styles.who}>{who}</div>}
       <div className={styles.text} onClick={nextPage}>
-        {text}
+        {color === 'gray' ? text && <Typical steps={[text, 3000]} /> : text}
         <NextBtnIcon className={styles.nextBtn} />
       </div>
     </div>
