@@ -5,7 +5,6 @@ import { storyArrayAtom, storyCurAtom, storyResultAtom } from 'recoil/atom';
 import styles from './textBox.module.scss';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
-import Typical from 'react-typical';
 import { resultCountUp } from 'apis/template';
 import { useEffect, useState } from 'react';
 
@@ -20,14 +19,16 @@ const TextBox = () => {
   const [Count, setCount] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setText(Text + text[Count]);
-      setCount(Count + 1);
-    }, 50);
-    if (Count === text.length) {
-      clearInterval(interval);
+    if (text !== undefined) {
+      const interval = setInterval(() => {
+        setText(Text + text[Count]);
+        setCount(Count + 1);
+      }, 50);
+      if (Count === text.length) {
+        clearInterval(interval);
+      }
+      return () => clearInterval(interval);
     }
-    return () => clearInterval(interval);
   });
 
   const nextPage = () => {
