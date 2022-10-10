@@ -22,7 +22,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
   const [apply, setApply] = useState(false);
   let popupDelay: NodeJS.Timer;
 
-  const URL = 'https://www.story-gonggam.com/campaign/' + router.query.result;
+  const URL = 'https://www.story-gonggam.com/' + router.query.result;
 
   const handleCaptureClick = () => {
     html2canvas(document.getElementById('resultTory') as HTMLElement, {
@@ -99,11 +99,11 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           </div>
           <h3 className={styles.subTitle}>{title}</h3>
         </div>
-        {/* <div className={styles.countDescription}>
+        <div className={styles.countDescription}>
           <span>나와 같은 토리 유형이 나온 사람은</span>
           <span className={styles.count}>{count}</span>
           <span>명입니다.</span>
-        </div> */}
+        </div>
         <p className={styles.toryP2}>{description}</p>
 
         <p className={styles.toryP3}>해당 프로그램에 대한 자세한 정보가 궁금하다면?</p>
@@ -132,7 +132,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
         <h4>토리의 하루를 참여해 주신 분들께 드리는 선물입니다.</h4>
         <ol start={1}>
           <li>
-            토리의 하루 스토리 화면 속 히든 메세지를 맞추 주시는 분들께 추첨을 통해 그립톡 or 휴대폰
+            토리의 하루 스토리 화면 속 히든 메세지를 맞춰 주시는 분들께 추첨을 통해 그립톡 or 휴대폰
             거치대를 토리 스티커 굿즈와 함께 드립니다.
           </li>
           <li>
