@@ -53,7 +53,7 @@ const getResult = async (id: string | string[] | undefined) => {
 // };
 
 const resultCountUp = async (params: statistics, env = process.env.NEXT_PUBLIC_COUNTUP) => {
-  await endpoint.post(`/api/count?env=` + env, params);
+  await endpoint.post(`/api/count?code=${params.code}&env=${params.env}`);
 };
 
 export { getStory, getResult, resultCountUp };
