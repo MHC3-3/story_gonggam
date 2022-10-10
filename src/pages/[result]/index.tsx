@@ -67,7 +67,7 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
 
   if (!outcome) return null;
 
-  const { title, description, partnerModel, name } = outcome;
+  const { title, description, partnerModel, name, count } = outcome;
 
   return (
     <div className={styles.result}>
@@ -99,6 +99,11 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
           </div>
           <h3 className={styles.subTitle}>{title}</h3>
         </div>
+        {/* <div className={styles.countDescription}>
+          <span>나와 같은 토리 유형이 나온 사람은</span>
+          <span className={styles.count}>{count}</span>
+          <span>명입니다.</span>
+        </div> */}
         <p className={styles.toryP2}>{description}</p>
 
         <p className={styles.toryP3}>해당 프로그램에 대한 자세한 정보가 궁금하다면?</p>
@@ -120,9 +125,9 @@ const StoryResult: NextPage = (props: InferGetStaticPropsType<typeof getStaticPr
       </section>
       <hr className={styles.hr} />
       <section className={styles.programBanner}>
-        <h3>퀴즈를 맞추시면 선물을 드립니다.</h3>
+        <h3>퀴즈를 맞추시면 선물을 드립니다!</h3>
         <div>
-          <Image src={'/pngs/programBanner.png'} alt='programBanner' width={390} height={210} />
+          <Image src={'/pngs/eventImg.png'} alt='programBanner' width={400} height={340} />
         </div>
         <h4>토리의 하루를 참여해 주신 분들께 드리는 선물입니다.</h4>
         <ol start={1}>

@@ -43,7 +43,16 @@
         margin-top: 20px;
         font-size: 17px;
         font-weight: 800;
-        padding-bottom: 20px;
+      }
+    }
+    .countDescription {
+      width: 90%;
+      font-size: 12px;
+      font-weight: 700;
+      margin: auto;
+      .count {
+        margin: 0px 5px;
+        color: #875300;
       }
     }
     .toryP2 {
@@ -114,9 +123,11 @@
     ol {
       list-style: auto;
       padding: 0 16px 0 32px;
+      color: #495057;
+      font-size: 15px;
       li {
         list-style: decimal;
-        line-height: 18px;
+        line-height: 20px;
         text-align: left;
         letter-spacing: -1px;
       }
