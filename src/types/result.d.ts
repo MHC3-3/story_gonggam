@@ -12,6 +12,7 @@ export interface IgetResult {
   description: string;
   resultToryImg: string;
   partnerModel: PartnerModel;
+  count: number;
 }
 
 interface PartnerModel {
