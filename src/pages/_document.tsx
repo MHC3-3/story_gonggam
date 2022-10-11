@@ -8,6 +8,7 @@ function Document() {
     <Html>
       <Head>
         <meta name='description' content='오류동 버들스토리공감 많이 찾아와 주세요' />
+        <meta name='naver-site-verification' content='67c3d6c35285dd95f9d465884c8ead0ad6b34dcf' />
         <link rel='icon' href='/favicon.ico' />
         <script
           src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js'
