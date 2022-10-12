@@ -1,5 +1,18 @@
+.applyWrap {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  max-width: 390px;
+  background: rgba($color: #000000, $alpha: 0.7);
+  z-index: 5;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .apply {
   position: fixed;
+  z-index: 7;
   width: 100%;
   max-width: 390px;
   background: #f8f9fa;
