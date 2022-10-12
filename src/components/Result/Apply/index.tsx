@@ -1,6 +1,7 @@
 import { CloseIcon } from '@/assets/svgs';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import { CampaignApply } from 'apis/result';
-import { Dispatch, SetStateAction, SyntheticEvent, useState } from 'react';
+import { Dispatch, SetStateAction, SyntheticEvent, useEffect, useState } from 'react';
 import Popup from '../Popup';
 import styles from './apply.module.scss';
 
@@ -43,6 +44,19 @@ const Apply = ({ setApply }: Props) => {
       setApply(false);
     }, 800);
   };
+
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
 
   return (
     <div className={styles.applyWrap}>
