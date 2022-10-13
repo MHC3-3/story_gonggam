@@ -139,7 +139,7 @@ const Main: NextPage = () => {
         </h4>
         <dl className={styles.definition}>
           <dt>이용시간</dt>
-          <dd>10:00~21:00 (일요일은 휴무입니다.)</dd>
+          <dd>10:00~21:00 (일요일은 18:00까지 입니다.)</dd>
           <dt>연락처</dt>
           <dd>02-2686-5952</dd>
         </dl>
