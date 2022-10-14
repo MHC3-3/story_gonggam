@@ -40,8 +40,7 @@ const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps
       <Head>
         <title>토리의 하루</title>
       </Head>
-
-      {intro ? (
+      {/* {intro ? (
         <Intro setIntro={setIntro} />
       ) : (
         <>
@@ -50,7 +49,13 @@ const Campaign: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps
           {story[current]?.question && <Question />}
           {story[current]?.hidden && <HiddenBox />}
         </>
-      )}
+      )} */}
+      <>
+        {story[current]?.backgroundImg && <Background />}
+        {story[current]?.text && <TextBox />}
+        {story[current]?.question && <Question />}
+        {story[current]?.hidden && <HiddenBox />}
+      </>
     </div>
   );
 };

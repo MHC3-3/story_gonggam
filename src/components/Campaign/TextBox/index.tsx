@@ -17,19 +17,31 @@ const TextBox = () => {
   const { color, who, text, isLast } = story[current];
   const [Text, setText] = useState('');
   const [Count, setCount] = useState(0);
+  const [nextText, setNextText] = useState(true);
 
   useEffect(() => {
-    if (text !== undefined) {
-      const interval = setInterval(() => {
-        setText(Text + text[Count]);
-        setCount(Count + 1);
-      }, 50);
-      if (Count === text.length) {
-        clearInterval(interval);
-      }
-      return () => clearInterval(interval);
+    if (!text) return void (() => {});
+    const interval = setInterval(() => {
+      setText(Text + text[Count]);
+      setCount(Count + 1);
+    }, 50);
+    if (Count === text.length) {
+      clearInterval(interval);
     }
+    return () => clearInterval(interval);
   });
+
+  useEffect(() => {
+    if (story[current].temp === 'introGif') {
+      const timer = setTimeout(() => {
+        setNextText(false);
+      }, 2000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [current, setCurrent, story]);
 
   const nextPage = () => {
     setCount(Text.length);
@@ -44,16 +56,38 @@ const TextBox = () => {
     setText('');
     setCount(0);
   };
-
-  return (
-    <div className={cx(color && styles[color], styles.textBox)}>
-      {who && <div className={styles.who}>{who}</div>}
-      <div className={styles.text} onClick={nextPage}>
-        {color === 'gray' ? Text : text}
-        <NextBtnIcon className={styles.nextBtn} />
+  if (story[current].temp === 'introGif') {
+    return (
+      <>
+        {nextText ? (
+          <div className={cx(styles['gray'], styles.textBox)}>
+            <div className={styles.text}>휘-잉</div>
+          </div>
+        ) : (
+          <div className={cx(color && styles[color], styles.textBox)}>
+            {who && <div className={styles.who}>{who}</div>}
+            <div className={styles.text} onClick={nextPage}>
+              {color === 'gray' ? Text : text}
+              <NextBtnIcon className={styles.nextBtn} />
+            </div>
+          </div>
+        )}
+      </>
+    );
+  } else {
+    return (
+      <div className={cx(color && styles[color], styles.textBox)}>
+        {who && <div className={styles.who}>{who}</div>}
+        <div
+          className={story[current].temp === 'introTory' ? styles.introBtn : styles.text}
+          onClick={nextPage}
+        >
+          {color === 'gray' ? Text : text}
+          <NextBtnIcon className={styles.nextBtn} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export { TextBox };
