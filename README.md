@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 모두가 하드캐리 3기 (with Team.버들시 삼토리) - Mobile
+
+
+## 프로젝트 설명
+![image](https://user-images.githubusercontent.com/28261736/196517743-941c6128-0ba8-42f5-8634-d152ab6dc412.png)
+
+
+## 사용 기술
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![](https://img.shields.io/static/v1?label=&message=TypeScript&logo=TypeScript&color=E37400&logoColor=white&style=for-the-badge)
+![](https://img.shields.io/static/v1?label=&message=SASS&logo=SASS&color=pink&logoColor=white&style=for-the-badge)
+![](https://img.shields.io/static/v1?label=&message=recoil&color=yellow&logoColor=white&style=for-the-badge)
 
 ## Getting Started
 
-First, run the development server:
+### 0. Clone 및 패키지 설치
 
-```bash
-npm run dev
-# or
+```
+git clone https://github.com/MHC3-3/story_gonggam.git
+cd story-gonggam
+yarn
+```
+
+### 1. 환경변수 설정
+
+- .env.local.sample 파일 참조
+
+```jsx
+NEXT_PUBLIC_MAP_KEY=
+NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY=
+NEXT_PUBLIC_COUNTUP=
+```
+
+### 2. start
+
+```jsx
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 페이지 구성
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 캠페인 페이지
+![image](https://user-images.githubusercontent.com/28261736/196518056-81ca8dfb-e5fa-4f0f-9791-25bca2f2f3c0.png)
+![image](https://user-images.githubusercontent.com/28261736/196518133-82292569-d4bc-4569-bf57-8d4ab486ced3.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 캠페인 결과 페이지
+![image](https://user-images.githubusercontent.com/28261736/196518278-d4c92b16-2ebd-4cc7-bd4c-6beae0c71bfa.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 소개 페이지
+![image](https://user-images.githubusercontent.com/28261736/196518953-7a0243f1-f9f7-4d9e-bf27-6ca8ad220fa1.png)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 오류 페이지
+![image](https://user-images.githubusercontent.com/28261736/196518354-87123421-1be6-429e-8fcf-983fd161b1c1.png)
